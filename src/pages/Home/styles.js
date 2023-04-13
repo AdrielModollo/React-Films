@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.div`
     h1 {
@@ -10,8 +10,8 @@ export const Container = styled.div`
         list-style: none;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        column-grap: 3rem;
-        row-grap: 4rem;
+        column-gap: 3rem;
+        row-gap: 4rem;
     }
 
     li {
@@ -23,12 +23,19 @@ export const Container = styled.div`
     img {
         width: 180px;
         border-radius: 1rem; 
-        margin-bottom- 2rem;
+        margin-bottom: 2rem;
     }
 
     span {
-        font-weigth: bold;
+        font-weight: bold;
         font-size: 120%;
     }
 
-`
+    a {
+        transition: all 0.3s;
+    }
+
+    a:hover {
+        transform: scale(1.1);
+    }
+`;
