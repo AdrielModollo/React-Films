@@ -1,31 +1,31 @@
-import { Container } from "./styles"
+import { Container, MovieList, Movie } from "./styles"
 
 function Home() {
     return (
         <Container>
             <h1> Movies!</h1>
-            <ul>
-                <li>
+            <MovieList>
+                <Movie>
                     <a href="https://google.com">
                         <img src="https://sm.ign.com/ign_br/movie/s/super-mari/super-mario-bros-o-filme_hnx9.jpg" alt="Mario" />
                     </a>
                     <span>Mario</span>
-                </li>
+                </Movie>
 
-                <li>
+                <Movie>
                     <a href="https://google.com">
                         <img src="https://sm.ign.com/ign_br/movie/s/super-mari/super-mario-bros-o-filme_hnx9.jpg" alt="Mario" />
                     </a>
                     <span>Mario</span>
-                </li>
+                </Movie>
 
-                <li>
+                <Movie>
                     <a href="https://google.com">
                         <img src="https://sm.ign.com/ign_br/movie/s/super-mari/super-mario-bros-o-filme_hnx9.jpg" alt="Mario" />
                     </a>
                     <span>Mario</span>
-                </li>
-            </ul>
+                </Movie>
+            </MovieList>
         </Container>
     )
 }
