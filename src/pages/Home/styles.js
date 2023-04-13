@@ -9,7 +9,7 @@ export const Container = styled.div`
     ul {
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         column-grap: 3rem;
         row-grap: 4rem;
     }
@@ -23,6 +23,11 @@ export const Container = styled.div`
     img {
         width: 180px;
         border-radius: 1rem; 
+        margin-bottom- 2rem;
+    }
+
+    span {
+        font-weigth: bold;
     }
 
 `
