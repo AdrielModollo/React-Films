@@ -4,3 +4,9 @@
   box-sizing: border-box;
   font-family: "League Spartan";
 }
+
+body {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+}
