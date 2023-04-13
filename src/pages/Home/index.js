@@ -1,24 +1,21 @@
 import { Container, MovieList, Movie } from "./styles"
+import { APIKey } from '../../config/key'
+import { useState, useEffect } from 'react'
+
 
 function Home() {
 
-    const movies = [
-        {
-            id: 1,
-            title: 'Mario Brothers',
-            image_url: "https://sm.ign.com/ign_br/movie/s/super-mari/super-mario-bros-o-filme_hnx9.jpg"
-        },
-        {
-            id: 2,
-            title: 'Avenger',
-            image_url: "https://sm.ign.com/ign_br/movie/s/super-mari/super-mario-bros-o-filme_hnx9.jpg"
-        },
-        {
-            id: 3,
-            title: 'Star wars',
-            image_url: "https://sm.ign.com/ign_br/movie/s/super-mari/super-mario-bros-o-filme_hnx9.jpg"
-        }
-    ]
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        // consumir a api...
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=en-US&page=1`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.results)
+                setMovies(data.results)
+            })
+    }, [])
 
     return (
         <Container>
@@ -28,7 +25,7 @@ function Home() {
                     return (
                         <Movie key={movie.id}>
                             <a href="https://google.com">
-                                <img src={movie.image_url} alt={movie.title} />
+                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                             </a>
                             <span>{movie.title}</span>
                         </Movie>
