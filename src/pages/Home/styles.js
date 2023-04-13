@@ -28,6 +28,7 @@ export const Container = styled.div`
 
     span {
         font-weigth: bold;
+        font-size: 120%;
     }
 
 `
