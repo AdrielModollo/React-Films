@@ -4,12 +4,11 @@ import { Container } from "./styles"
 import { useAuth } from "../Login/authContext"
 
 function Details() {
-    const { isAuthenticated, logout, token } = useAuth();
+    const { isAuthenticated, logout, token, user } = useAuth();
     const { id } = useParams()
 
     const [movie, setMovie] = useState({})
     const image_path = 'https://image.tmdb.org/t/p/w500'
-
 
     useEffect(() => {
         fetch(`http://localhost:3000/movies/id?movie_id=${id}`, {
@@ -38,10 +37,42 @@ function Details() {
         logout();
     }
 
+
+    const handleRent = () => {
+        fetch('http://localhost:3000/rentals', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                movie_id: id,
+                user_id: user.id
+            })
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error('Request failed with status ' + response.status)
+                }
+            })
+            .then(data => {
+                alert('Successfully rented movie')
+            })
+            .catch(error => {
+                if (error.message.includes('409')) {
+                    alert('Movie Rent!')
+                } else {
+                    alert('Error when renting movie')
+                }
+            })
+    }
+
+
     if (!isAuthenticated) {
         return <Navigate to="/login" />;
     }
-
 
     return (
         <Container>
@@ -52,6 +83,9 @@ function Details() {
                     <h1>{movie.title}</h1>
                     <span>Sinopse: {movie.sinopse} </span>
                     <span className="release-date">Release: {movie.releaseDate} </span>
+                    {user.id && movie.id && (
+                        <button onClick={() => handleRent(user.id, movie.id)}>Rent Movie</button>
+                    )}
                     <Link to="/"><button> Go Back </button></Link>
                 </div>
             </div>

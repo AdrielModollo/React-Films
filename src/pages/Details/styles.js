@@ -49,6 +49,13 @@ export const Container = styled.div`
         font-size: 120%;
     }
 
+    button[disabled] {
+        background-color: #ddd;
+        color: #888;
+        cursor: not-allowed;
+      }
+      
+
     .release-date {
         opacity: 0.5;
     }
