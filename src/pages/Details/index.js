@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Container } from "./styles"
 import { useAuth } from "../Login/authContext"
+import createRental from "../Rentals";
 
 function Details() {
     const { isAuthenticated, logout, token, user } = useAuth();
@@ -39,24 +40,7 @@ function Details() {
 
 
     const handleRent = () => {
-        fetch('http://localhost:3000/rentals', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                movie_id: id,
-                user_id: user.id
-            })
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                } else {
-                    throw new Error('Request failed with status ' + response.status)
-                }
-            })
+        createRental(id, user.id, token)
             .then(data => {
                 alert('Successfully rented movie')
             })
