@@ -1,17 +1,22 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, Navigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { APIKey } from '../../config/key'
 import { Container } from "./styles"
+import { useAuth } from "../Login/authContext"
 
 function Details() {
-
+    const { isAuthenticated, logout, token } = useAuth();
     const { id } = useParams()
 
     const [movie, setMovie] = useState({})
     const image_path = 'https://image.tmdb.org/t/p/w500'
 
+
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}&language=en-US`)
+        fetch(`http://localhost:3000/movies/id?movie_id=${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
 
@@ -25,13 +30,22 @@ function Details() {
                     releaseDate: release_date
                 }
 
-                console.log(movie)
                 setMovie(movie)
             })
-    }, [id])
+    }, [id, token])
+
+    const handleLogout = () => {
+        logout();
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to="/login" />;
+    }
+
 
     return (
         <Container>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
             <div className="movie">
                 <img src={movie.image} alt={movie.sinopse} />
                 <div className="details">
