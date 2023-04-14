@@ -2,13 +2,14 @@ import { Link, useParams, Navigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Container } from "./styles"
 import { useAuth } from "../Login/authContext"
-import createRental from "../Rentals";
+import createRental from "../Rentals/createRental";
 
 function Details() {
     const { isAuthenticated, logout, token, user } = useAuth();
     const { id } = useParams()
 
     const [movie, setMovie] = useState({})
+    const [rentalError, setRentalError] = useState(null)
     const image_path = 'https://image.tmdb.org/t/p/w500'
 
     useEffect(() => {
@@ -42,11 +43,13 @@ function Details() {
     const handleRent = () => {
         createRental(id, user.id, token)
             .then(data => {
+                setRentalError(null)
                 alert('Successfully rented movie')
             })
             .catch(error => {
                 if (error.message.includes('409')) {
-                    alert('Movie Rent!')
+                    setRentalError('409')
+                    alert('Rented movie, you can rent the movie again only after 48hrs!!')
                 } else {
                     alert('Error when renting movie')
                 }
@@ -68,7 +71,9 @@ function Details() {
                     <span>Sinopse: {movie.sinopse} </span>
                     <span className="release-date">Release: {movie.releaseDate} </span>
                     {user.id && movie.id && (
-                        <button onClick={() => handleRent(user.id, movie.id)}>Rent Movie</button>
+                        <button onClick={() => handleRent(user.id, movie.id)} disabled={rentalError === "409"}>
+                            Rent Movie
+                        </button>
                     )}
                     <Link to="/"><button> Go Back </button></Link>
                 </div>
