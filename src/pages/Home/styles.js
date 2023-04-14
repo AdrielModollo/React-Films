@@ -5,6 +5,32 @@ export const Container = styled.div`
        text-align: center;
        margin: 4rem 0;
     }
+
+    .logout-button {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 999;
+        opacity: 0.8;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        transform: translateY(50%);
+        transition: all 0.3s ease-in-out;
+        height: 2rem;
+        width: 4rem;
+        border: none;
+        border-radius: 1rem;
+      }
+      
+      .logout-button:hover {
+        background-color: #ffffff;
+        color: #008080;
+        height: 2.5rem;
+        width: 5rem;
+        transform: translateY(0%);
+      }
+      
+      
 `;
 
 export const MovieList = styled.ul`
