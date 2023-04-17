@@ -82,9 +82,9 @@ As rotas utilizadas em cada arquivo são:
 
 ````
 - pages/Home/index.js: a rota '/' é utilizada para renderizar o componente Home, responsável pela página inicial da aplicação. Este componente renderiza uma lista de filmes obtidos da API e permite ao usuário clicar em um filme para ver seus detalhes ou alugá-lo.
-- pages/Details/index.js: a rota '/films/:id' é utilizada para renderizar o componente Details, responsável pela página de detalhes de um filme. Este componente obtém as informações do filme a partir da API e renderiza essas informações na página.
+- pages/Details/index.js: a rota '/details/:id' é utilizada para renderizar o componente Details, responsável pela página de detalhes de um filme. Este componente obtém as informações do filme a partir da API e renderiza essas informações na página.
 - pages/Login/authLogin.js: a rota '/login' é utilizada para renderizar o componente AuthLogin, responsável pela página de login da aplicação. Este componente recebe as credenciais do usuário(email e password) e faz a autenticação usando a API.
-- pages/Rentals/createRental.js: a rota '/rentals/new' é utilizada para renderizar o componente CreateRental, responsável pela página de criação de um novo aluguel. Este componente permite ao usuário escolher o filme a ser alugado e o período de aluguel, e faz a comunicação com a API para criar o aluguel.
+- pages/Rentals/createRental.js: a rota '/rentals' é utilizada para renderizar o componente CreateRental, responsável pela página de criação de um novo aluguel. Este componente permite ao usuário escolher o filme a ser alugado e o período de aluguel, e faz a comunicação com a API para criar o aluguel.
 ````
 
 Além disso, o arquivo index.js também define uma rota com caminho '*', que é utilizada como rota curinga para lidar com casos em que a rota acessada pelo usuário não existe na aplicação. Lembrando que api está integrada com o back-end, onde é feito a integração com api [themoviedb](https://developers.themoviedb.org/3/movies) para consulta de filmes!
