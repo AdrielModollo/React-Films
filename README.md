@@ -72,7 +72,6 @@ Além disso, é importante destacar que a aplicação faz uso de algumas bibliot
 
 ````
 - react-router-dom: biblioteca utilizada para lidar com as rotas da aplicação e renderizar os componentes correspondentes a cada rota.
-- axios: biblioteca utilizada para fazer requisições HTTP para a API que fornece os dados dos filmes e os endpoints de autenticação e aluguel.
 - styled-components: O arquivo styles.js é utilizado para definir os estilos do componente React que está presente no arquivo index.js da mesma pasta. Esses estilos são definidos utilizando a sintaxe do styled-components, que é uma biblioteca de CSS-in-JS para o React.
 ````
 
