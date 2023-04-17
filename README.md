@@ -88,3 +88,9 @@ As rotas utilizadas em cada arquivo são:
 ````
 
 Além disso, o arquivo index.js também define uma rota com caminho '*', que é utilizada como rota curinga para lidar com casos em que a rota acessada pelo usuário não existe na aplicação. Lembrando que api está integrada com o back-end, onde é feito a integração com api [themoviedb](https://developers.themoviedb.org/3/movies) para consulta de filmes!
+
+### Telas
+
+![Login](https://www.imagemhost.com.br/image/rRQ67C)
+![Home](https://www.imagemhost.com.br/image/rRQAYL)
+![Details](https://www.imagemhost.com.br/image/rRQIIB)
