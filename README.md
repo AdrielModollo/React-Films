@@ -91,6 +91,6 @@ Além disso, o arquivo index.js também define uma rota com caminho '*', que é 
 
 ### Telas
 
-![Login](https://www.imagemhost.com.br/image/rRQ67C)
-![Home](https://www.imagemhost.com.br/image/rRQAYL)
-![Details](https://www.imagemhost.com.br/image/rRQIIB)
+![Login](https://i.ibb.co/dDFFy6P/1.png)
+![Home](https://i.ibb.co/WxKn8ZM/2.png)
+![Details](https://i.ibb.co/YD4GknR/3.png)
